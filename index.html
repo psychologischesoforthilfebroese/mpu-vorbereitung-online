@@ -1,80 +1,199 @@
 <!doctype html>
-</div>
-<div>
-<label for="when">Bevorzugte Zeit</label>
-<select id="when" name="when">
-<option>Werktags vormittags</option>
-<option>Werktags nachmittags</option>
-<option>Abends</option>
-</select>
-</div>
-</div>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MPU-Psychologische Beratung — Individuell & Zielorientiert</title>
+  <meta name="description" content="Individuelle psychologische Beratung zur Vorbereitung auf die MPU. Coaching, Fallanalyse, Trainings und Begleitung."> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f9fafb;
+      --surface:#ffffff;
+      --accent:#2563eb;
+      --accent-dark:#1d4ed8;
+      --muted:#6b7280;
+      --text:#111827;
+      --radius:16px;
+      --shadow:0 8px 24px rgba(0,0,0,0.06);
+    }
+    [data-theme="dark"]{
+      --bg:#111827;
+      --surface:#1f2937;
+      --accent:#3b82f6;
+      --accent-dark:#2563eb;
+      --muted:#9ca3af;
+      --text:#f9fafb;
+      --shadow:0 8px 24px rgba(0,0,0,0.4);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Inter',system-ui,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      transition:background .3s,color .3s;
+    }
+    a{text-decoration:none;color:var(--accent);transition:.3s}
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(12px);
+      background:rgba(255,255,255,0.8);
+      border-bottom:1px solid #e5e7eb;
+      transition:.3s;
+    }
+    [data-theme="dark"] header{background:rgba(31,41,55,0.9);border-color:#374151}
+    .nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+    .logo{font-weight:700;font-size:20px;color:var(--accent)}
+    .nav-links{display:flex;gap:20px;align-items:center}
+    .btn{padding:10px 18px;border-radius:var(--radius);background:var(--accent);color:white;font-weight:500;transition:.2s}
+    .btn:hover{background:var(--accent-dark)}
+    .toggle-theme{cursor:pointer;border:none;background:none;color:var(--muted);font-size:14px}
 
+    /* Hero */
+    .hero{max-width:1200px;margin:0 auto;padding:60px 24px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+    .hero h1{font-size:40px;font-weight:700;margin-bottom:16px;}
+    .hero p{color:var(--muted);font-size:18px;margin-bottom:24px}
+    .card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);padding:32px;transition:.3s}
 
-<label for="message">Kurzbeschreibung Ihres Anliegens</label>
-<textarea id="message" name="message" placeholder="Worum geht es? Welche Vorbefunde gibt es?" required></textarea>
+    /* Services */
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:32px}
+    .service{background:var(--surface);padding:24px;border-radius:var(--radius);box-shadow:var(--shadow);transition:transform .2s,background .3s}
+    .service:hover{transform:translateY(-4px)}
+    .service h3{font-size:18px;margin:8px 0;font-weight:600}
+    .service p{color:var(--muted);font-size:15px}
 
+    /* About */
+    .about{max-width:1200px;margin:0 auto;padding:60px 24px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+    .about img{width:100%;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .about-text h2{font-size:28px;margin-bottom:12px}
 
-<button type="submit" class="btn">Anfrage absenden</button>
-</form>
+    /* Kontakt */
+    .contact{max-width:1200px;margin:0 auto;padding:60px 24px;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+    form{display:flex;flex-direction:column;gap:14px}
+    input,textarea,select{padding:12px;border:1px solid #e5e7eb;border-radius:var(--radius);font-size:15px;background:var(--surface);color:var(--text);transition:.3s}
+    textarea{min-height:120px;resize:vertical}
 
+    /* FAQ */
+    .faq{max-width:800px;margin:0 auto;padding:60px 24px}
+    details{margin-bottom:14px;background:var(--surface);padding:16px 20px;border-radius:var(--radius);box-shadow:var(--shadow);transition:.3s}
+    summary{font-weight:600;cursor:pointer}
+    summary::-webkit-details-marker{display:none}
 
-<p class="muted" style="margin-top:10px;font-size:13px">Hinweis: Das Formular öffnet standardmäßig Ihr E-Mail-Programm. Für ein aktives Kontaktformular verbinden Sie die Seite mit einem Formularservice (z. B. Formspree) oder richten einen kleinen Server-Endpunkt ein.</p>
-</div>
+    footer{padding:30px 24px;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid #e5e7eb;margin-top:40px;transition:.3s}
+    [data-theme="dark"] footer{border-color:#374151}
 
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .about{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">MPU Beratung</div>
+      <div class="nav-links">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#about">Über mich</a>
+        <a href="#faq">FAQ</a>
+        <a href="#kontakt" class="btn">Erstgespräch</a>
+        <button class="toggle-theme" id="toggleTheme">🌙</button>
+      </div>
+    </div>
+  </header>
 
-<div style="height:18px"></div>
+  <section class="hero">
+    <div>
+      <h1>Individuelle psychologische MPU-Beratung</h1>
+      <p>Professionelle Vorbereitung mit Coaching, Übungsgesprächen und nachhaltigen Strategien — für ein sicheres Gefühl vor der MPU.</p>
+      <a href="#kontakt" class="btn">Kostenloses Erstgespräch</a>
+    </div>
+    <div class="card">
+      <h3>Unsere Schwerpunkte</h3>
+      <div class="services">
+        <div class="service">
+          <h3>Einzelcoaching</h3>
+          <p>Persönliche Sitzungen mit Fokus auf Verhalten, Motivation und Reflexion.</p>
+        </div>
+        <div class="service">
+          <h3>Übungsgespräche</h3>
+          <p>Simulationen unter realen Bedingungen mit konstruktivem Feedback.</p>
+        </div>
+        <div class="service">
+          <h3>Gutachten-Check</h3>
+          <p>Analyse von Unterlagen und gezielte Hinweise zur Nachweisführung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section class="about" id="about">
+    <div class="about-text">
+      <h2>Über mich</h2>
+      <p>Ich begleite seit vielen Jahren Menschen durch die Vorbereitung auf die MPU. Dabei geht es nicht nur um das Bestehen der Untersuchung, sondern um nachhaltige Veränderung, Klarheit und Sicherheit im Alltag.</p>
+    </div>
+    <img src="https://via.placeholder.com/500x350" alt="Beratungsgespräch" />
+  </section>
 
-<div class="card">
-<h4 style="margin:0 0 6px">Preise (Beispiel)</h4>
-<p class="muted" style="margin:0 0 8px">Einzelstunde — 75 € / 60 min<br>Vorbereitungspaket (4 Sitzungen) — 270 €</p>
-<a href="#kontakt">Individuelles Angebot anfragen</a>
-</div>
-</aside>
-</section>
+  <section class="contact" id="kontakt">
+    <div>
+      <h2>Jetzt Erstgespräch sichern</h2>
+      <p>Das kostenlose Kennenlerngespräch (30 Minuten per Telefon oder Video) hilft uns, Ihren Fall und die nächsten Schritte zu klären.</p>
+      <p><strong>Beispielpreise:</strong><br>Einzelstunde: 75 € / 60 min<br>Vorbereitungspaket (4 Sitzungen): 270 €</p>
+    </div>
+    <div class="card">
+      <form action="mailto:deine@email.de" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Ihr Name" required>
+        <input type="email" name="email" placeholder="Ihre E-Mail" required>
+        <input type="text" name="phone" placeholder="Telefon (optional)">
+        <select name="zeit">
+          <option>Werktags vormittags</option>
+          <option>Werktags nachmittags</option>
+          <option>Abends</option>
+        </select>
+        <textarea name="nachricht" placeholder="Ihr Anliegen..." required></textarea>
+        <button type="submit" class="btn">Anfrage absenden</button>
+      </form>
+    </div>
+  </section>
 
+  <section class="faq" id="faq">
+    <h2>Häufige Fragen</h2>
+    <details>
+      <summary>Wie lange dauert die Vorbereitung?</summary>
+      <p>Meist 4–8 Sitzungen, bei komplexeren Fällen auch länger.</p>
+    </details>
+    <details>
+      <summary>Sind meine Angaben vertraulich?</summary>
+      <p>Ja, selbstverständlich. Alle Informationen unterliegen der Schweigepflicht.</p>
+    </details>
+    <details>
+      <summary>Arbeiten Sie mit Gutachtern zusammen?</summary>
+      <p>Bei Bedarf können Empfehlungen für Tests und Sachverständige ausgesprochen werden.</p>
+    </details>
+  </section>
 
-<section style="margin-top:22px">
-<div class="card" id="faq">
-<h2 style="margin-top:0">Häufige Fragen</h2>
-<details>
-<summary style="font-weight:600">Wie lange dauert die Vorbereitung?</summary>
-<p class="muted">Das hängt vom Einzelfall ab — meist 4–8 Sitzungen, bei komplexeren Fällen länger.</p>
-</details>
-<details>
-<summary style="font-weight:600">Sind meine Angaben vertraulich?</summary>
-<p class="muted">Ja. Psychologische Beratung unterliegt der Schweigepflicht. Schriftliche Unterlagen werden vertraulich behandelt.</p>
-</details>
-<details>
-<summary style="font-weight:600">Arbeiten Sie mit Gutachtern zusammen?</summary>
-<p class="muted">Bei Bedarf können wir Empfehlungen für statistisch fundierte Tests oder Sachverständige besprechen.</p>
-</details>
-</div>
-</section>
+  <footer>
+    © <span id="year"></span> MPU Beratung — Psychologische Vorbereitung. Diese Website ersetzt keine Therapie.
+  </footer>
 
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();
 
-</main>
-
-
-<footer>
-<div class="muted">© <span id="year"></span> MPU Beratung — Psychologische Vorbereitung. Diese Website ersetzt keine Therapie. Angaben dienen Informationszwecken.</div>
-</footer>
-</div>
-
-
-<script>
-// Fügt aktuelles Jahr in Footer ein
-document.getElementById('year').textContent = new Date().getFullYear();
-
-
-// Kleiner UX-Hinweis: Form wird per mailto gesendet. Bei Bedarf ersetzen.
-const form = document.getElementById('contact');
-form.addEventListener('submit', function(e){
-// Wenn du hier eine echte Integration möchtest, entferne die folgende Zeile
-// und verbinde ein Backend / ein Formularservice.
-// Wir lassen das Standardverhalten zu.
-});
-</script>
+    const toggleBtn=document.getElementById('toggleTheme');
+    toggleBtn.addEventListener('click',()=>{
+      if(document.body.getAttribute('data-theme')==='dark'){
+        document.body.removeAttribute('data-theme');
+        toggleBtn.textContent='🌙';
+      }else{
+        document.body.setAttribute('data-theme','dark');
+        toggleBtn.textContent='☀️';
+      }
+    });
+  </script>
 </body>
 </html>
