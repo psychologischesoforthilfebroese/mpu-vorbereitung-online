@@ -103,6 +103,24 @@
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, var(--primary), #1c3f5d);
+      color: white;
+      border-radius: 0 0 40px 40px;
+      margin-bottom: 40px;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #f0f0f0;
+    }
     .leistungen-grid, .preise-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -140,8 +158,8 @@
   <nav>
     <div class="nav-links">
       <a href="#leistungen">Leistungen</a>
-      <a href="#about">Über uns</a>
       <a href="#preise">Preise</a>
+      <a href="#about">Über uns</a>
       <a href="#faq">FAQ</a>
       <a href="#kontakt" class="btn">Erstgespräch</a>
       <a href="#impressum">Impressum</a>
@@ -150,13 +168,9 @@
   </nav>
 </header>
 
-<section class="about fade-in" id="about">
-  <div class="about-text">
-    <h2>Über uns</h2>
-    <p>Wir sind ein Team von Rechtspsycholog*innen (M.Sc.) mit fundierter Ausbildung und langjähriger Berufserfahrung. Seit vielen Jahren begleiten wir Menschen auf ihrem Weg durch die MPU. Unser Ansatz vereint Fachkompetenz, Empathie und klare Strategien für nachhaltige Veränderungen.</p>
-    <p>Unsere Arbeit orientiert sich an den <a href="https://www.bast.de/DE/Themen/Sicherheit/U1-MPU/mpu-qualitaetssicherung/qualitaetssicherung_node.html" target="_blank">Qualitätsanforderungen der Bundesanstalt für Straßenwesen (BASt)</a>.</p>
-  </div>
-  <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80" alt="Unser Team in der Beratung">
+<section class="hero fade-in">
+  <h1>MPU Vorbereitung Online</h1>
+  <p>Professionelle Begleitung durch erfahrene Rechtspsycholog*innen (M.Sc.) – online, flexibel und individuell.</p>
 </section>
 
 <!-- Schwerpunkte -->
@@ -184,7 +198,7 @@
   <p>Transparenz ist uns wichtig – hier finden Sie unsere aktuellen Angebote:</p>
   <div class="preise-grid">
     <div class="price-card">
-      <h3>Verkehrspsychologische Beratung</h3>
+      <h3>Verkehrspsychologische Erstberatung</h3>
       <p class="dauer">45 Minuten</p>
       <p class="preis">59 €</p>
       <ul>
@@ -194,7 +208,7 @@
       </ul>
     </div>
     <div class="price-card">
-      <h3>Intensivberatung</h3>
+      <h3>Intensivberatung Einzelsitzung</h3>
       <p class="dauer">50 Minuten</p>
       <p class="preis">99 €</p>
       <ul>
@@ -204,9 +218,9 @@
       </ul>
     </div>
     <div class="price-card">
-      <h3>Intensivberatung Kompakt</h3>
-      <p class="dauer">8 Sitzungen à 50 Minuten</p>
-      <p class="preis">750 €</p>
+      <h3>Intensivberatung Kompaktpaket</h3>
+      <p class="dauer">8 Sitzungen Intensivberatung</p>
+      <p class="preis">749 €</p>
       <ul>
         <li>Acht intensive Beratungssitzungen</li>
         <li>Zur Verfügungstellung von Lernmaterialien</li>
@@ -214,6 +228,16 @@
       </ul>
     </div>
   </div>
+</section>
+
+<!-- Über uns -->
+<section class="about fade-in" id="about">
+  <div class="about-text">
+    <h2>Über uns</h2>
+    <p>Wir sind ein Team von Rechtspsycholog*innen (M.Sc.) mit fundierter Ausbildung und langjähriger Berufserfahrung. Seit vielen Jahren begleiten wir Menschen auf ihrem Weg durch die MPU. Unser Ansatz vereint Fachkompetenz, Empathie und klare Strategien für nachhaltige Veränderungen.</p>
+    <p>Unsere Arbeit orientiert sich an den <a href="https://www.bast.de/DE/Themen/Sicherheit/U1-MPU/mpu-qualitaetssicherung/qualitaetssicherung_node.html" target="_blank">Qualitätsanforderungen der Bundesanstalt für Straßenwesen (BASt)</a>.</p>
+  </div>
+  <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80" alt="Unser Team in der Beratung">
 </section>
 
 <!-- Kontakt -->
@@ -225,6 +249,7 @@
     <input type="text" name="phone" placeholder="Telefon (optional)">
 
     <div class="termin-block">
+      <!-- Termin 1 -->
       <div>
         <label for="termin1">Wunschtermin 1</label>
         <div style="display:flex;gap:8px;">
@@ -232,6 +257,7 @@
           <select id="zeit1" name="zeit1"></select>
         </div>
       </div>
+      <!-- Termin 2 -->
       <div>
         <label for="termin2">Wunschtermin 2</label>
         <div style="display:flex;gap:8px;">
@@ -239,6 +265,7 @@
           <select id="zeit2" name="zeit2"></select>
         </div>
       </div>
+      <!-- Termin 3 -->
       <div>
         <label for="termin3">Wunschtermin 3</label>
         <div style="display:flex;gap:8px;">
@@ -253,6 +280,7 @@
   </form>
 </section>
 
+<!-- Impressum -->
 <section class="impressum fade-in" id="impressum">
   <h2>Impressum</h2>
   <p><strong>Angaben gemäß § 5 TMG</strong></p>
@@ -276,6 +304,7 @@
   Max Mustermann, Anschrift wie oben</p>
 </section>
 
+<!-- Datenschutz -->
 <section class="datenschutz fade-in" id="datenschutz">
   <h2>Datenschutzerklärung</h2>
   <p><strong>1. Verantwortlich</strong></p>
@@ -296,14 +325,16 @@
 </section>
 
 <footer>
-  © <span id="year"></span> MPU Beratung — Psychologische Vorbereitung. 
+  © <span id="year"></span> MPU Vorbereitung Online — Psychologische Beratung & Vorbereitung. 
   <br>
   <a href="#impressum">Impressum</a> | <a href="#datenschutz">Datenschutz</a>
 </footer>
 
 <script>
+  // Jahr im Footer aktualisieren
   document.getElementById("year").textContent = new Date().getFullYear();
 
+  // Uhrzeiten dynamisch generieren
   function generateTimes(startHour, endHour, stepMinutes) {
     const times = [];
     for (let h = startHour; h <= endHour; h++) {
@@ -334,7 +365,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    const times = generateTimes(7, 21, 30);
+    const times = generateTimes(7, 21, 30); // 07:00 bis 21:00 alle 30 Min.
     ["zeit1", "zeit2", "zeit3"].forEach(id => populateSelect(id, times));
   });
 </script>
