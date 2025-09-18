@@ -52,6 +52,10 @@
     .btn:hover{background:var(--accent-dark)}
     .toggle-theme{cursor:pointer;border:none;background:none;color:var(--muted);font-size:14px}
 
+    /* Fade-in Animation */
+    .fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+
     /* Hero */
     .hero{max-width:1200px;margin:0 auto;padding:60px 24px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
     .hero h1{font-size:40px;font-weight:700;margin-bottom:16px;}
@@ -106,24 +110,25 @@
     </div>
   </header>
 
-  <section class="hero">
+  <section class="hero fade-in">
     <div>
       <h1>Individuelle psychologische MPU-Beratung</h1>
       <p>Professionelle Vorbereitung mit Coaching, Übungsgesprächen und nachhaltigen Strategien — für ein sicheres Gefühl vor der MPU.</p>
       <a href="#kontakt" class="btn">Kostenloses Erstgespräch</a>
     </div>
     <div class="card">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Beratung" style="width:100%;border-radius:var(--radius);margin-bottom:16px;">
       <h3>Unsere Schwerpunkte</h3>
-      <div class="services">
-        <div class="service">
+      <div class="services" id="leistungen">
+        <div class="service fade-in">
           <h3>Einzelcoaching</h3>
           <p>Persönliche Sitzungen mit Fokus auf Verhalten, Motivation und Reflexion.</p>
         </div>
-        <div class="service">
+        <div class="service fade-in">
           <h3>Übungsgespräche</h3>
           <p>Simulationen unter realen Bedingungen mit konstruktivem Feedback.</p>
         </div>
-        <div class="service">
+        <div class="service fade-in">
           <h3>Gutachten-Check</h3>
           <p>Analyse von Unterlagen und gezielte Hinweise zur Nachweisführung.</p>
         </div>
@@ -131,15 +136,15 @@
     </div>
   </section>
 
-  <section class="about" id="about">
+  <section class="about fade-in" id="about">
     <div class="about-text">
       <h2>Über mich</h2>
       <p>Ich begleite seit vielen Jahren Menschen durch die Vorbereitung auf die MPU. Dabei geht es nicht nur um das Bestehen der Untersuchung, sondern um nachhaltige Veränderung, Klarheit und Sicherheit im Alltag.</p>
     </div>
-    <img src="https://via.placeholder.com/500x350" alt="Beratungsgespräch" />
+    <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=600&q=80" alt="Psychologische Beratung" />
   </section>
 
-  <section class="contact" id="kontakt">
+  <section class="contact fade-in" id="kontakt">
     <div>
       <h2>Jetzt Erstgespräch sichern</h2>
       <p>Das kostenlose Kennenlerngespräch (30 Minuten per Telefon oder Video) hilft uns, Ihren Fall und die nächsten Schritte zu klären.</p>
@@ -161,7 +166,7 @@
     </div>
   </section>
 
-  <section class="faq" id="faq">
+  <section class="faq fade-in" id="faq">
     <h2>Häufige Fragen</h2>
     <details>
       <summary>Wie lange dauert die Vorbereitung?</summary>
@@ -194,6 +199,17 @@
         toggleBtn.textContent='☀️';
       }
     });
+
+    // Fade-in Observer
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    },{threshold:0.1});
+
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
   </script>
 </body>
 </html>
