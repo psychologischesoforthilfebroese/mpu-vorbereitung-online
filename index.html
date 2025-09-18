@@ -46,7 +46,8 @@
     }
     [data-theme="dark"] header{background:rgba(31,41,55,0.9);border-color:#374151}
     .nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
-    .logo{font-weight:700;font-size:20px;color:var(--accent)}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:20px;color:var(--accent)}
+    .logo img{height:40px}
     .nav-links{display:flex;gap:20px;align-items:center}
     .btn{padding:10px 18px;border-radius:var(--radius);background:var(--accent);color:white;font-weight:500;transition:.2s}
     .btn:hover{background:var(--accent-dark)}
@@ -99,7 +100,10 @@
 <body>
   <header>
     <div class="nav">
-      <div class="logo">MPU Beratung</div>
+      <div class="logo">
+        <img src="A_vector-based_logo_for_MPU_Vorbereitung_Online_is.png" alt="MPU Vorbereitung Online Logo">
+        <span>MPU Beratung</span>
+      </div>
       <div class="nav-links">
         <a href="#leistungen">Leistungen</a>
         <a href="#about">Über mich</a>
@@ -140,6 +144,7 @@
     <div class="about-text">
       <h2>Über mich</h2>
       <p>Ich begleite seit vielen Jahren Menschen durch die Vorbereitung auf die MPU. Dabei geht es nicht nur um das Bestehen der Untersuchung, sondern um nachhaltige Veränderung, Klarheit und Sicherheit im Alltag.</p>
+      <p>Meine Arbeit orientiert sich an den <a href="https://www.bast.de" target="_blank">Qualitätsanforderungen der Bundesanstalt für Straßenwesen (BASt)</a>, um eine fundierte und fachgerechte Beratung sicherzustellen.</p>
     </div>
     <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=600&q=80" alt="Psychologische Beratung" />
   </section>
