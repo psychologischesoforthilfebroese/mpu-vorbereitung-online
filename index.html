@@ -48,7 +48,7 @@
     .nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
     .logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:20px;color:var(--accent)}
     .logo img{height:64px;filter:drop-shadow(0 3px 6px rgba(0,0,0,0.4))}
-    .nav-links{display:flex;gap:20px;align-items:center}
+    .nav-links{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
     .btn{padding:10px 18px;border-radius:var(--radius);background:var(--accent);color:white;font-weight:500;transition:.2s}
     .btn:hover{background:var(--accent-dark)}
     .toggle-theme{cursor:pointer;border:none;background:none;color:var(--muted);font-size:14px}
@@ -139,6 +139,8 @@
         <a href="#about">Über uns</a>
         <a href="#faq">FAQ</a>
         <a href="#kontakt" class="btn">Erstgespräch</a>
+        <a href="#impressum">Impressum</a>
+        <a href="#datenschutz">Datenschutz</a>
         <button class="toggle-theme" id="toggleTheme">🌙</button>
       </div>
     </div>
@@ -156,15 +158,15 @@
       <div class="services" id="leistungen">
         <div class="service fade-in">
           <h3>Einzelcoaching</h3>
-          <p>Individuelle Gespräche mit Fokus auf Selbstreflexion, Motivation und nachhaltige Verhaltensänderungen.</p>
+          <p>Persönliche Gespräche zur Förderung von Selbstreflexion, Motivation und nachhaltigen Veränderungen.</p>
         </div>
         <div class="service fade-in">
           <h3>Übungsgespräche</h3>
-          <p>Realistische Probesituationen, die eine sichere und authentische Vorbereitung auf die MPU ermöglichen.</p>
+          <p>Realitätsnahe Simulationen, um ein sicheres und authentisches Auftreten bei der MPU zu trainieren.</p>
         </div>
         <div class="service fade-in">
           <h3>Gutachten-Check</h3>
-          <p>Professionelle Durchsicht Ihrer Unterlagen mit gezielten Empfehlungen für eine erfolgreiche Vorlage.</p>
+          <p>Gründliche Prüfung Ihrer Unterlagen mit konkreten Hinweisen zur erfolgreichen Vorbereitung.</p>
         </div>
       </div>
     </div>
@@ -243,34 +245,49 @@
     </details>
   </section>
 
-  <footer>
-    © <span id="year"></span> MPU Beratung — Psychologische Vorbereitung. Diese Website ersetzt keine Therapie.
-  </footer>
+  <section class="impressum fade-in" id="impressum" style="max-width:1200px;margin:0 auto;padding:60px 24px;">
+    <h2>Impressum</h2>
+    <p><strong>Angaben gemäß § 5 TMG</strong></p>
+    <p>
+      Max Mustermann<br>
+      Praxis für Rechtspsychologie<br>
+      Musterstraße 12<br>
+      12345 Musterstadt
+    </p>
+    <p>
+      Telefon: 01234 / 567890<br>
+      E-Mail: info@mpu-vorbereitung-online.de
+    </p>
+    <p><strong>Berufsbezeichnung:</strong><br>
+    Rechtspsycholog*in (M.Sc.)</p>
+    <p><strong>Aufsichtsbehörde:</strong><br>
+    Beispielhafte Psychotherapeutenkammer Musterland</p>
+    <p><strong>Umsatzsteuer-ID:</strong><br>
+    DE123456789</p>
+    <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
+    Max Mustermann, Anschrift wie oben</p>
+    <p style="margin-top:20px;font-size:14px;color:var(--muted);">
+      Hinweis: Dieses Impressum ist ein Platzhalter. Bitte ersetze die Angaben mit deinen tatsächlichen Kontaktdaten, Berufsbezeichnungen und zuständigen Stellen.
+    </p>
+  </section>
 
-  <script>
-    document.getElementById('year').textContent=new Date().getFullYear();
+  <section class="datenschutz fade-in" id="datenschutz" style="max-width:1200px;margin:0 auto;padding:60px 24px;">
+    <h2>Datenschutzerklärung</h2>
+    <p><strong>1. Verantwortlich</strong></p>
+    <p>
+      Max Mustermann<br>
+      Praxis für Rechtspsychologie<br>
+      Musterstraße 12<br>
+      12345 Musterstadt<br>
+      E-Mail: info@mpu-vorbereitung-online.de
+    </p>
 
-    const toggleBtn=document.getElementById('toggleTheme');
-    toggleBtn.addEventListener('click',()=>{
-      if(document.body.getAttribute('data-theme')==='dark'){
-        document.body.removeAttribute('data-theme');
-        toggleBtn.textContent='🌙';
-      }else{
-        document.body.setAttribute('data-theme','dark');
-        toggleBtn.textContent='☀️';
-      }
-    });
+    <p><strong>2. Erhebung und Speicherung personenbezogener Daten</strong></p>
+    <p>
+      Wenn Sie uns per Kontaktformular oder E-Mail Anfragen zukommen lassen, werden Ihre Angaben inklusive der von Ihnen dort angegebenen Kontaktdaten ausschließlich zur Bearbeitung der Anfrage und für den Fall von Anschlussfragen gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+    </p>
 
-    // Fade-in Observer
-    const observer=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add('visible');
-        }
-      });
-    },{threshold:0.1});
-
-    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
-  </script>
-</body>
-</html>
+    <p><strong>3. Zweck der Verarbeitung</strong></p>
+    <p>
+      Die Verarbeitung der von Ihnen angegebenen Daten erfolgt zur Bearbeitung Ihrer Anfrage, Durchführung von Beratungsgesprächen sowie zur Terminvereinbarung.
+    </
