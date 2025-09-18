@@ -27,9 +27,6 @@
       background: var(--primary);
       color: white;
     }
-    header img {
-      height: 64px;
-    }
     nav .nav-links {
       display: flex;
       gap: 16px;
@@ -103,13 +100,34 @@
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+    .leistungen-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .leistung {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .leistung h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
   </style>
 </head>
 <body>
 
 <header>
   <div class="logo">
-    <img src="logo.png" alt="Logo MPU Vorbereitung Online">
+    <!-- Inline SVG Logo Variante 3 -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="280" height="90" viewBox="0 0 500 150" role="img" aria-label="Logo MPU Vorbereitung Online">
+      <circle cx="75" cy="75" r="60" fill="#2E5C8A"/>
+      <path d="M50 75 L70 95 L105 55" stroke="#FFB400" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="160" y="70" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="#2E5C8A">MPU</text>
+      <text x="160" y="115" font-family="Arial, sans-serif" font-size="28" fill="#333">Vorbereitung Online</text>
+    </svg>
   </div>
   <nav>
     <div class="nav-links">
@@ -123,13 +141,31 @@
   </nav>
 </header>
 
+<section class="fade-in" id="leistungen">
+  <h2>Unsere Schwerpunkte</h2>
+  <div class="leistungen-grid">
+    <div class="leistung">
+      <h3>Verkehrspsychologische Aufarbeitung</h3>
+      <p>Wir unterstützen Sie dabei, Ihre persönliche Vorgeschichte im Straßenverkehr zu reflektieren und Ursachen für das Verhalten zu verstehen. So schaffen wir eine Grundlage für glaubwürdige Veränderungen.</p>
+    </div>
+    <div class="leistung">
+      <h3>Individuelle Strategien</h3>
+      <p>Gemeinsam entwickeln wir konkrete Ansätze, wie Sie problematische Muster im Alltag nachhaltig ändern können. Praktische Übungen und klare Handlungspläne stehen dabei im Vordergrund.</p>
+    </div>
+    <div class="leistung">
+      <h3>Vorbereitung auf die Begutachtung</h3>
+      <p>Wir machen Sie mit den Abläufen und Fragestellungen der MPU vertraut. Sie gewinnen Sicherheit, indem Sie lernen, authentisch und nachvollziehbar Ihre Entwicklung darzustellen.</p>
+    </div>
+  </div>
+</section>
+
 <section class="about fade-in" id="about">
   <div class="about-text">
     <h2>Über uns</h2>
     <p>Wir sind ein Team von Rechtspsycholog*innen (M.Sc.) mit fundierter Ausbildung und langjähriger Berufserfahrung. Seit vielen Jahren begleiten wir Menschen auf ihrem Weg durch die MPU. Unser Ansatz vereint Fachkompetenz, Empathie und klare Strategien für nachhaltige Veränderungen.</p>
     <p>Unsere Arbeit orientiert sich an den <a href="https://www.bast.de/DE/Themen/Sicherheit/U1-MPU/mpu-qualitaetssicherung/qualitaetssicherung_node.html" target="_blank">Qualitätsanforderungen der Bundesanstalt für Straßenwesen (BASt)</a>.</p>
   </div>
-  <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80" alt="Unser Team in der Beratung">
+  <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80" alt="Symbolbild Teamarbeit">
 </section>
 
 <section class="kontakt fade-in" id="kontakt">
@@ -140,7 +176,6 @@
     <input type="text" name="phone" placeholder="Telefon (optional)">
 
     <div class="termin-block">
-      <!-- Termin 1 -->
       <div>
         <label for="termin1">Wunschtermin 1</label>
         <div style="display:flex;gap:8px;">
@@ -148,7 +183,6 @@
           <select id="zeit1" name="zeit1"></select>
         </div>
       </div>
-      <!-- Termin 2 -->
       <div>
         <label for="termin2">Wunschtermin 2</label>
         <div style="display:flex;gap:8px;">
@@ -156,7 +190,6 @@
           <select id="zeit2" name="zeit2"></select>
         </div>
       </div>
-      <!-- Termin 3 -->
       <div>
         <label for="termin3">Wunschtermin 3</label>
         <div style="display:flex;gap:8px;">
@@ -220,10 +253,8 @@
 </footer>
 
 <script>
-  // Jahr im Footer aktualisieren
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Uhrzeiten dynamisch generieren
   function generateTimes(startHour, endHour, stepMinutes) {
     const times = [];
     for (let h = startHour; h <= endHour; h++) {
@@ -254,7 +285,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    const times = generateTimes(7, 21, 30); // 07:00 bis 21:00 alle 30 Min.
+    const times = generateTimes(7, 21, 30);
     ["zeit1", "zeit2", "zeit3"].forEach(id => populateSelect(id, times));
   });
 </script>
