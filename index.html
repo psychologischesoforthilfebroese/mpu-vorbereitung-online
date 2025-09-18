@@ -27,6 +27,9 @@
       background: var(--primary);
       color: white;
     }
+    header img {
+      height: 64px;
+    }
     nav .nav-links {
       display: flex;
       gap: 16px;
@@ -100,20 +103,31 @@
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-    .leistungen-grid {
+    .leistungen-grid, .preise-grid {
       display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
-    .leistung {
-      background: white;
-      padding: 20px;
+    .card, .price-card {
+      background: #fff;
       border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .leistung h3 {
-      margin-top: 0;
+    .card:hover, .price-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+    .preis {
+      font-size: 1.8rem;
+      font-weight: bold;
       color: var(--primary);
+      margin: 12px 0;
+    }
+    .dauer {
+      color: var(--muted);
+      margin-bottom: 8px;
     }
   </style>
 </head>
@@ -121,18 +135,13 @@
 
 <header>
   <div class="logo">
-    <!-- Inline SVG Logo Variante 3 -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="280" height="90" viewBox="0 0 500 150" role="img" aria-label="Logo MPU Vorbereitung Online">
-      <circle cx="75" cy="75" r="60" fill="#2E5C8A"/>
-      <path d="M50 75 L70 95 L105 55" stroke="#FFB400" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      <text x="160" y="70" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="#2E5C8A">MPU</text>
-      <text x="160" y="115" font-family="Arial, sans-serif" font-size="28" fill="#333">Vorbereitung Online</text>
-    </svg>
+    <img src="logo.svg" alt="Logo MPU Vorbereitung Online">
   </div>
   <nav>
     <div class="nav-links">
       <a href="#leistungen">Leistungen</a>
       <a href="#about">Über uns</a>
+      <a href="#preise">Preise</a>
       <a href="#faq">FAQ</a>
       <a href="#kontakt" class="btn">Erstgespräch</a>
       <a href="#impressum">Impressum</a>
@@ -141,33 +150,73 @@
   </nav>
 </header>
 
-<section class="fade-in" id="leistungen">
-  <h2>Unsere Schwerpunkte</h2>
-  <div class="leistungen-grid">
-    <div class="leistung">
-      <h3>Verkehrspsychologische Aufarbeitung</h3>
-      <p>Wir unterstützen Sie dabei, Ihre persönliche Vorgeschichte im Straßenverkehr zu reflektieren und Ursachen für das Verhalten zu verstehen. So schaffen wir eine Grundlage für glaubwürdige Veränderungen.</p>
-    </div>
-    <div class="leistung">
-      <h3>Individuelle Strategien</h3>
-      <p>Gemeinsam entwickeln wir konkrete Ansätze, wie Sie problematische Muster im Alltag nachhaltig ändern können. Praktische Übungen und klare Handlungspläne stehen dabei im Vordergrund.</p>
-    </div>
-    <div class="leistung">
-      <h3>Vorbereitung auf die Begutachtung</h3>
-      <p>Wir machen Sie mit den Abläufen und Fragestellungen der MPU vertraut. Sie gewinnen Sicherheit, indem Sie lernen, authentisch und nachvollziehbar Ihre Entwicklung darzustellen.</p>
-    </div>
-  </div>
-</section>
-
 <section class="about fade-in" id="about">
   <div class="about-text">
     <h2>Über uns</h2>
     <p>Wir sind ein Team von Rechtspsycholog*innen (M.Sc.) mit fundierter Ausbildung und langjähriger Berufserfahrung. Seit vielen Jahren begleiten wir Menschen auf ihrem Weg durch die MPU. Unser Ansatz vereint Fachkompetenz, Empathie und klare Strategien für nachhaltige Veränderungen.</p>
     <p>Unsere Arbeit orientiert sich an den <a href="https://www.bast.de/DE/Themen/Sicherheit/U1-MPU/mpu-qualitaetssicherung/qualitaetssicherung_node.html" target="_blank">Qualitätsanforderungen der Bundesanstalt für Straßenwesen (BASt)</a>.</p>
   </div>
-  <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80" alt="Symbolbild Teamarbeit">
+  <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80" alt="Unser Team in der Beratung">
 </section>
 
+<!-- Schwerpunkte -->
+<section id="leistungen" class="leistungen fade-in">
+  <h2>Unsere Schwerpunkte</h2>
+  <div class="leistungen-grid">
+    <div class="card">
+      <h3>Psychologische Aufarbeitung</h3>
+      <p>Wir unterstützen Sie dabei, die Ursachen Ihres Verkehrsdelikts zu verstehen und reflektiert aufzuarbeiten. Unser Ziel ist, dass Sie nachhaltig neue Denk- und Verhaltensmuster entwickeln.</p>
+    </div>
+    <div class="card">
+      <h3>Individuelle Strategien</h3>
+      <p>Jede Situation ist einzigartig. Gemeinsam erarbeiten wir Strategien, die zu Ihrer persönlichen Lebenssituation passen – praxisnah und umsetzbar.</p>
+    </div>
+    <div class="card">
+      <h3>Dokumente-Check</h3>
+      <p>Wir prüfen Ihre Unterlagen sorgfältig und geben Ihnen Klarheit über notwendige Schritte, z. B. Abstinenznachweise oder verkehrsrechtliche Anforderungen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Preise -->
+<section id="preise" class="preise fade-in">
+  <h2>Unsere Preise</h2>
+  <p>Transparenz ist uns wichtig – hier finden Sie unsere aktuellen Angebote:</p>
+  <div class="preise-grid">
+    <div class="price-card">
+      <h3>Verkehrspsychologische Beratung</h3>
+      <p class="dauer">45 Minuten</p>
+      <p class="preis">59 €</p>
+      <ul>
+        <li>Check der Dokumente</li>
+        <li>Aufzeigen der Schritte bis zur MPU</li>
+        <li>Beratung zu Abstinenznachweisen</li>
+      </ul>
+    </div>
+    <div class="price-card">
+      <h3>Intensivberatung</h3>
+      <p class="dauer">50 Minuten</p>
+      <p class="preis">99 €</p>
+      <ul>
+        <li>Individuelle psychologische Beratung</li>
+        <li>Gezielte Vorbereitung auf die MPU</li>
+        <li>Strategien zur Verhaltensänderung</li>
+      </ul>
+    </div>
+    <div class="price-card">
+      <h3>Intensivberatung Kompakt</h3>
+      <p class="dauer">8 Sitzungen à 50 Minuten</p>
+      <p class="preis">750 €</p>
+      <ul>
+        <li>Acht intensive Beratungssitzungen</li>
+        <li>Zur Verfügungstellung von Lernmaterialien</li>
+        <li>Teilnahmebestätigung</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Kontakt -->
 <section class="kontakt fade-in" id="kontakt">
   <h2>Kontakt aufnehmen</h2>
   <form action="mailto:deine@email.de" method="post" enctype="text/plain">
