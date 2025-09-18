@@ -1,11 +1,80 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Meine erste GitHub Page</title>
-  </head>
-  <body>
-    <h1>Willkommen auf meiner Website 🎉</h1>
-    <p>Diese Seite wird kostenlos über GitHub Pages gehostet.</p>
-  </body>
+<!doctype html>
+</div>
+<div>
+<label for="when">Bevorzugte Zeit</label>
+<select id="when" name="when">
+<option>Werktags vormittags</option>
+<option>Werktags nachmittags</option>
+<option>Abends</option>
+</select>
+</div>
+</div>
+
+
+<label for="message">Kurzbeschreibung Ihres Anliegens</label>
+<textarea id="message" name="message" placeholder="Worum geht es? Welche Vorbefunde gibt es?" required></textarea>
+
+
+<button type="submit" class="btn">Anfrage absenden</button>
+</form>
+
+
+<p class="muted" style="margin-top:10px;font-size:13px">Hinweis: Das Formular öffnet standardmäßig Ihr E-Mail-Programm. Für ein aktives Kontaktformular verbinden Sie die Seite mit einem Formularservice (z. B. Formspree) oder richten einen kleinen Server-Endpunkt ein.</p>
+</div>
+
+
+<div style="height:18px"></div>
+
+
+<div class="card">
+<h4 style="margin:0 0 6px">Preise (Beispiel)</h4>
+<p class="muted" style="margin:0 0 8px">Einzelstunde — 75 € / 60 min<br>Vorbereitungspaket (4 Sitzungen) — 270 €</p>
+<a href="#kontakt">Individuelles Angebot anfragen</a>
+</div>
+</aside>
+</section>
+
+
+<section style="margin-top:22px">
+<div class="card" id="faq">
+<h2 style="margin-top:0">Häufige Fragen</h2>
+<details>
+<summary style="font-weight:600">Wie lange dauert die Vorbereitung?</summary>
+<p class="muted">Das hängt vom Einzelfall ab — meist 4–8 Sitzungen, bei komplexeren Fällen länger.</p>
+</details>
+<details>
+<summary style="font-weight:600">Sind meine Angaben vertraulich?</summary>
+<p class="muted">Ja. Psychologische Beratung unterliegt der Schweigepflicht. Schriftliche Unterlagen werden vertraulich behandelt.</p>
+</details>
+<details>
+<summary style="font-weight:600">Arbeiten Sie mit Gutachtern zusammen?</summary>
+<p class="muted">Bei Bedarf können wir Empfehlungen für statistisch fundierte Tests oder Sachverständige besprechen.</p>
+</details>
+</div>
+</section>
+
+
+</main>
+
+
+<footer>
+<div class="muted">© <span id="year"></span> MPU Beratung — Psychologische Vorbereitung. Diese Website ersetzt keine Therapie. Angaben dienen Informationszwecken.</div>
+</footer>
+</div>
+
+
+<script>
+// Fügt aktuelles Jahr in Footer ein
+document.getElementById('year').textContent = new Date().getFullYear();
+
+
+// Kleiner UX-Hinweis: Form wird per mailto gesendet. Bei Bedarf ersetzen.
+const form = document.getElementById('contact');
+form.addEventListener('submit', function(e){
+// Wenn du hier eine echte Integration möchtest, entferne die folgende Zeile
+// und verbinde ein Backend / ein Formularservice.
+// Wir lassen das Standardverhalten zu.
+});
+</script>
+</body>
 </html>
